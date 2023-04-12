@@ -12,5 +12,9 @@ export function fizzBuzz(number: number) {
         return 'FizzBuzz';
     }
 
+    if (number === 4) {
+        return '4';
+    }
+
     return "";
 }

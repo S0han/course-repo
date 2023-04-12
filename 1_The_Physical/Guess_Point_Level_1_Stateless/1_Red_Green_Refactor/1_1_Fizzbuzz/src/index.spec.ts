@@ -18,4 +18,8 @@ describe("fizzbuzz", () => {
         expect(fizzBuzz(15)).toEqual('FizzBuzz');
     })
 
+    it('returns "4" for 4', () => {
+        expect(fizzBuzz(4)).toBe('4');
+    })
+
 });
