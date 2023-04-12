@@ -2,10 +2,6 @@ import  { fizzBuzz } from './fizzbuzz';
 
 describe("fizzbuzz", () => {
 
-    it('returns a string', () => {
-        expect(typeof fizzBuzz(5)).toBe('string');
-    })
-
     it('returns fizz for 3', () => {
         expect(fizzBuzz(3)).toEqual('Fizz');
     })
@@ -32,6 +28,10 @@ describe("fizzbuzz", () => {
 
     it('returns FizzBuzz for 30', () => {
         expect(fizzBuzz(30)).toEqual('FizzBuzz');
+    })
+
+    it('returns "17" for 17', () => {
+        expect(fizzBuzz(17)).toBe('17');
     })
 
 });
