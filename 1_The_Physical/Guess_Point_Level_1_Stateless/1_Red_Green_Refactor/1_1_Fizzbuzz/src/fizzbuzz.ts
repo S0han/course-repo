@@ -4,5 +4,9 @@ export function fizzBuzz(number: number) {
         return 'Fizz';
     }
 
+    if (number === 5) {
+        return 'Buzz';
+    }
+
     return "";
 }
