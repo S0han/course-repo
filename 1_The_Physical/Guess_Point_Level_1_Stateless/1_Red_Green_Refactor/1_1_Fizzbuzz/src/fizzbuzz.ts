@@ -8,5 +8,9 @@ export function fizzBuzz(number: number) {
         return 'Buzz';
     }
 
+    if (number === 15) {
+        return 'FizzBuzz';
+    }
+
     return "";
 }
