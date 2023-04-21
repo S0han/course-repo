@@ -2,8 +2,8 @@ import { palindromeChecker } from './palindromechecker'
 
 
 describe('palindrome checker', () => {
-    
-    it('returns a string', () => {
+
+    it('knows that input is a string', () => {
         expect(typeof palindromeChecker('t')).toBe('string');
     });
 

@@ -1,16 +1,13 @@
 export function palindromeChecker (string: string) {
     
-    if (string == 'mom') {
-        return true;
+    let data = string;
+
+    if (typeof data != 'string') {
+        return false;
     }
 
-    if (string == 'wow') {
-        return true;
+    if (data === data.split("").reverse().join("")) {
+        return data;
     }
 
-    if (string == 'level') {
-        return true;
-    }
-    
-    return '';
 }
