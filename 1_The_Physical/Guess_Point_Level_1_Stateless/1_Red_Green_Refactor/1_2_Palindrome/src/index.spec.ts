@@ -3,7 +3,7 @@ import { palindromeChecker } from './palindromechecker'
 
 describe('palindrome checker', () => {
 
-    it('knows that "mom" is a plaindrome', () => {
+    it('knows that "mom" is a palindrome', () => {
         expect(palindromeChecker('mom')).toBeTruthy();
     });
 
