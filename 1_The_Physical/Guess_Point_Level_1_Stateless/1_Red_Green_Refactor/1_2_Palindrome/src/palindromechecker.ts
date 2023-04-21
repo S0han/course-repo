@@ -7,6 +7,10 @@ export function palindromeChecker (string: string) {
     if (string == 'wow') {
         return true;
     }
+
+    if (string == 'level') {
+        return true;
+    }
     
     return '';
 }
