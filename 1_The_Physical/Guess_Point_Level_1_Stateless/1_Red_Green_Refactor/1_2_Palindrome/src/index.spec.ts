@@ -40,7 +40,7 @@ describe('palindrome checker', () => {
     })
 
     it('knows that "This is not a palindrome" is not a palindrome', () => {
-        expect(palindromeChecker('This is not a palindrome')).toBeTruthy();
+        expect(palindromeChecker('This is not a palindrome')).toBe(false);
     })
 
 })
