@@ -39,4 +39,8 @@ describe('palindrome checker', () => {
         expect(palindromeChecker('Never Odd or Even')).toBeTruthy();
     })
 
+    it('knows that "This is not a palindrome" is not a palindrome', () => {
+        expect(palindromeChecker('This is not a palindrome')).toBeTruthy();
+    })
+
 })
