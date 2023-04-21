@@ -1,3 +1,4 @@
+//test
 import { palindromeChecker } from './palindromechecker'
 
 
