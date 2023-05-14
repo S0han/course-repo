@@ -6,10 +6,10 @@ describe('password validator', () => {
         
         let input = 'mom';
 
-        let response = new PasswordValidator();
+        let response = new PasswordValidator(input);
 
         expect(response.valPass().result).toBe(false);
-        expect(response.valPass().errorKey.length).toEqual(1);
+        expect(response.valPass().length).toEqual(1);
         expect(response.valPass().errorKey[0]).toEqual('Missing Digit');
 
     })
