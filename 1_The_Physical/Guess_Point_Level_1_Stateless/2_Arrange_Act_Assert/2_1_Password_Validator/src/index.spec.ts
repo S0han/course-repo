@@ -27,4 +27,17 @@ describe('password validator', () => {
    });
 
 
+   it('returns "Invalid Length - Password can not exceed 15 characters"..', () => {
+
+        let password = 'Dadddddddddddddddddssdd3';
+
+        let response = passwordValidator(password);
+
+        expect(response.result).toBe(false);
+        expect(response.errorKey.length).toEqual(1);
+        expect(response.errorKey[0]).toEqual('Invalid Length - Password can not exceed 15 characters');
+
+    });
+
+
 })
