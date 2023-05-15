@@ -5,9 +5,11 @@ describe('password validator', () => {
         
         let password = 'Momotaro';
 
-        expect(passwordValidator(password).result).toBe(false);
-        expect(passwordValidator(password).errorKey.length).toEqual(1);
-        expect(passwordValidator(password).errorKey[0]).toEqual('Missing Digit');
+        let response = passwordValidator(password);
+
+        expect(response.result).toBe(false);
+        expect(response.errorKey.length).toEqual(1);
+        expect(response.errorKey[0]).toEqual('Missing Digit');
 
    });
 })
