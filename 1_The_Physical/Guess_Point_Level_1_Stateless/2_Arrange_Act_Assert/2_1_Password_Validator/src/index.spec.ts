@@ -39,5 +39,17 @@ describe('password validator', () => {
 
     });
 
+    it('returns "Missing Upper-case Letter" for passwords without at least 1 upper-case letter', () => {
+
+        let password = 'momtar999';
+
+        let response = passwordValidator(password);
+
+        expect(response.result).toBe(false);
+        expect(response.errorKey.length).toEqual(1);
+        expect(response.errorKey[0]).toEqual('Missing Upper-case Letter');
+
+    });
+
 
 })
