@@ -11,21 +11,21 @@ export class PasswordValidator {
         
         if (!hasDigit(password)) {
             validated.errorKey.push('Missing Digit');
-            validated.result = false;
         }
 
         if (fiveChar(password)) {
             validated.errorKey.push('Invalid Length - Password must be at least than 5 characters');
-            validated.result = false;
         }
 
         if (fifteenChar(password)) {
             validated.errorKey.push('Invalid Length - Password can not exceed 15 characters');
-            validated.result = false;
         }
 
         if (!hasUpper(password)) {
             validated.errorKey.push('Missing Upper-case Letter');
+        }
+
+        if (errorKey.length > 0) {
             validated.result = false;
         }
         
