@@ -75,4 +75,17 @@ describe('password validator', () => {
         expect(response.errorKey).toEqual(['Missing Digit', 'Invalid Length - Password must be at least 5 characters', 'Missing Upper-case Letter']);
 
     });
+
+    it('returns both "Missing Digit" AND "Missing Upper-case Letter" AND "Invalid Length - Password can not exceed 15 characters".. ', () => {
+        
+        let password = 'mommmmmmmmmmmmmmmmmmm';
+
+        let response = passwordValidator(password);
+
+        expect(response.result).toBe(false);
+        expect(response.errorKey.length).toEqual(3);
+        expect(response.errorKey).toEqual(['Missing Digit', 'Invalid Length - Password can not exceed 15 characters', 'Missing Upper-case Letter']);
+
+    });
+
 })
