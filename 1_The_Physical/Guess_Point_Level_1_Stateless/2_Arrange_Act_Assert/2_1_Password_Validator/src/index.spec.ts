@@ -48,6 +48,38 @@ describe('password validator', () => {
 
     });
 
+    it('returns both "Missing Digit" AND "Missing Upper-case Letter"..', () => {
+        
+        let password = 'momwww';
+        
+        let response = new PasswordValidator();
+
+        expect(response.valPass(password).result).toBe(false);
+        expect(response.valPass(password).errorKey.length).toEqual(2);
+        expect(response.valPass(password).errorKey).toEqual(['Missing Digit', 'Missing Upper-case Letter']);
+    });
+
+    it('returns both "Missing Digit" AND "Missing Upper-case Letter" AND "Invalid Length - Password must be at least than 5 characters"..', () => {
+        
+        let password = 'mom';
+        
+        let response = new PasswordValidator();
+
+        expect(response.valPass(password).result).toBe(false);
+        expect(response.valPass(password).errorKey.length).toEqual(3);
+        expect(response.valPass(password).errorKey).toEqual(['Missing Digit', 'Invalid Length - Password must be at least than 5 characters' , 'Missing Upper-case Letter', ]);
+    });
+
+    it('returns both "Missing Digit" AND "Missing Upper-case Letter" AND "Invalid Length - Password can not exceed 15 characters"..', () => {
+        
+        let password = 'mommmmmmmmmmmmmmm';
+        
+        let response = new PasswordValidator();
+
+        expect(response.valPass(password).result).toBe(false);
+        expect(response.valPass(password).errorKey.length).toEqual(3);
+        expect(response.valPass(password).errorKey).toEqual(['Missing Digit', 'Invalid Length - Password can not exceed 15 characters' , 'Missing Upper-case Letter', ]);
+    });
 
 })
 
