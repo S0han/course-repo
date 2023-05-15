@@ -23,6 +23,11 @@ export class PasswordValidator {
             validated.errorKey.push('Invalid Length - Password can not exceed 15 characters');
             validated.result = false;
         }
+
+        if (!hasUpper(password)) {
+            validated.errorKey.push('Missing Upper-case Letter');
+            validated.result = false;
+        }
         
         return validated;
     }
@@ -39,4 +44,8 @@ function fiveChar(password: string): boolean {
 
 function fifteenChar(password: string): boolean {
     return (password.length >= 15);
+}
+
+function hasUpper(password: string): boolean {
+    return /[A-Z]/.test(password);
 }

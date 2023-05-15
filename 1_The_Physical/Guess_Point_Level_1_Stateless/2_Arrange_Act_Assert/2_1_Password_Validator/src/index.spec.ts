@@ -36,6 +36,18 @@ describe('password validator', () => {
         expect(response.valPass(password).errorKey[0]).toEqual('Invalid Length - Password can not exceed 15 characters');
     });
 
+    it('returns "Missing Upper-case Letter" for passwords without at least 1 upper-case letter', () => {
+        
+        let password = 'momtar999';
+
+        let response = new PasswordValidator();
+
+        expect(response.valPass(password).result).toBe(false);
+        expect(response.valPass(password).errorKey.length).toEqual(1);
+        expect(response.valPass(password).errorKey[0]).toEqual('Missing Upper-case Letter');
+
+    });
+
 
 })
 
