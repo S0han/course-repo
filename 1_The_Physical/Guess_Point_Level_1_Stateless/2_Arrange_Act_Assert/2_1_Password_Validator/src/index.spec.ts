@@ -4,13 +4,13 @@ import { PasswordValidator } from '../src/passwordValidator';
 describe('password validator', () => {
     it('returns "missing digit" for passwords without at least 1 digit', () => {
         
-        let input = 'mom';
+        let password = 'mom';
 
-        let response = new PasswordValidator(input);
+        let response = new PasswordValidator();
 
-        expect(response.valPass().result).toBe(false);
-        expect(response.valPass().length).toEqual(1);
-        expect(response.valPass().errorKey[0]).toEqual('Missing Digit');
+        expect(response.valPass(password).result).toBe(false);
+        expect(response.valPass(password).errorKey.length).toEqual(1);
+        expect(response.valPass(password).errorKey[0]).toEqual('Missing Digit');
 
     })
 })

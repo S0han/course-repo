@@ -1,24 +1,24 @@
 export class PasswordValidator {
-    password: string;
-    result: boolean;
-    errorKey: string[];
 
-    constructor(x: string) {
-        this.password = x;
-        this.result = false;
-        this.errorKey = ['Missing Digit'];
-    }
-
-
-    valPass() {
-
-        this.result = /\d/.test(this.password);
-
-        return {
-            result: this.result,
-            length: this.errorKey.length,
-            errorKey: this.errorKey,
+    valPass(password: string)  {
+        let result: boolean = true;
+        const errorKey: string[] = [];
+        
+        const validated = {
+            result,
+            errorKey
         }
+        
+        if (!hasDigit(password)) {
+            validated.errorKey.push('Missing Digit');
+            validated.result = false
+        }
+        
+        return validated;
     }
 
+}
+
+function hasDigit(password: string): boolean {
+    return /\d/.test(password);
 }
