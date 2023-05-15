@@ -51,5 +51,16 @@ describe('password validator', () => {
 
     });
 
+    it('returns both "Missing Digit" AND "Missing Upper-case Letter".. ', () => {
+        
+        let password = 'momwww';
+
+        let response = passwordValidator(password);
+
+        expect(response.result).toBe(false);
+        expect(response.errorKey.length).toEqual(2);
+        expect(response.errorKey[0]).toEqual('Missing Digit', 'Missing Upper-case Letter');
+
+    });
 
 })
