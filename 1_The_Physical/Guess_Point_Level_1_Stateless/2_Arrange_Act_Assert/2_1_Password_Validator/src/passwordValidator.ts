@@ -18,6 +18,11 @@ export function passwordValidator(password: string) {
         validated.result = false;
     } 
 
+    if (fifteenChar(password)) {
+        validated.errorKey.push('Invalid Length - Password can not exceed 15 characters');
+        validated.result = false;
+    } 
+
     return validated;
 }
 
@@ -27,4 +32,8 @@ function hasDigit(password: string): boolean {
 
 function fiveChar(password: string): boolean {
     return (password.length <= 5);
+}
+
+function fifteenChar(password: string): boolean {
+    return (password.length >= 15);
 }
