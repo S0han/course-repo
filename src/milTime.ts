@@ -1,3 +1,5 @@
 export function milTime(timeInput: string) {
-    return false
+    if (timeInput == '') {
+        return false;
+    }
 }
