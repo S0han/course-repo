@@ -15,7 +15,7 @@ describe('military time validator', () => {
 
     it('must contain a " - " in the time range', () => {
         
-        let timeInput = '10:21 - 11:05'
+        let timeInput = '10:21 -11:05'
 
         const valMilTime = milTime(timeInput);
 
