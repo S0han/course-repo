@@ -17,29 +17,31 @@ describe("military time validator", () => {
     expect(valMilTime).toBe(false);
   });
 
-  describe('can detect valid hours', () => {
-    it.each([
-        ["25:00 - 12:23", false],
-        ["23:00 - 27:23", false],
-        ["19:00 - 22:23", true],
-      ])("it knows that %s has hours that are %s ", (time, result) => {
-        expect(milTime(time)).toBe(result);
-      });
+    describe('can detect valid hours', () => {
+        it.each([
+            ["25:00 - 12:23", false],
+            ["23:00 - 27:23", false],
+            ["19:00 - 22:23", true],
+        ])("it knows that %s has hours that are %s ", (time, result) => {
+            expect(milTime(time)).toBe(result);
+        });
     });
 
-    describe('it knows that "12:99 - 13:01" is not a valid time range', () => {
+
+
+    it('it knows that "12:99 - 13:01" is not a valid time range', () => {
         const timeInput = "12:99 - 13:01";
 
         expect(milTime(timeInput)).toBe(false);
     });
 
-    describe('it knows that "12:01 - 13:99" is not a valid time range', () => {
+    it('it knows that "12:01 - 13:99" is not a valid time range', () => {
         const timeInput = "12:01 - 13:99";
 
         expect(milTime(timeInput)).toBe(false);
     });
     
-    describe('it knows that "12:01 - 14:23" is a valid time range', () => {
+    it('it knows that "12:01 - 14:23" is a valid time range', () => {
         const timeInput = "12:01 - 14:23";
 
         expect(milTime(timeInput)).toBe(true);
