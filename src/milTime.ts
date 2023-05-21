@@ -7,8 +7,13 @@ export function milTime(timeInput: string) {
         return false;   
     }
 
-    let leftTime = Number(timeInput.split(" - ")[0].split(':')[0]);
-    if (leftTime >= 25) {
+    let leftHour = Number(timeInput.split(" - ")[0].split(':')[0]);
+    if (leftHour >= 25) {
+        return false;
+    }
+
+    let rightHour = Number(timeInput.split(" - ")[1].split(':')[0]);
+    if (rightHour >= 25) {
         return false;
     }
 
