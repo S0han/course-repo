@@ -23,7 +23,7 @@ describe('military time validator', () => {
 
     });
 
-    it('knows that "" is not a valid time range', () => {
+    it('knows that "25:00 - 12:23" is not a valid time range', () => {
 
         const timeInput = '25:00 - 12:23'; 
         
