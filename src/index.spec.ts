@@ -27,24 +27,14 @@ describe("military time validator", () => {
         });
     });
 
-
-
-    it('it knows that "12:99 - 13:01" is not a valid time range', () => {
-        const timeInput = "12:99 - 13:01";
-
-        expect(milTime(timeInput)).toBe(false);
-    });
-
-    it('it knows that "12:01 - 13:99" is not a valid time range', () => {
-        const timeInput = "12:01 - 13:99";
-
-        expect(milTime(timeInput)).toBe(false);
-    });
-    
-    it('it knows that "12:01 - 14:23" is a valid time range', () => {
-        const timeInput = "12:01 - 14:23";
-
-        expect(milTime(timeInput)).toBe(true);
+    describe('can detect valid minutes', () => {
+        it.each([
+            ["12:99 - 13:01", false], 
+            ["12:01 - 13:99", false], 
+            ["12:01 - 14:23", true],
+        ])("it knows that %s has minutes that are %s", (time, result) => {
+            expect(milTime(time)).toBe(result);
+        });
     });
   
 });
