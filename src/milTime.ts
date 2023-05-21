@@ -7,22 +7,13 @@ export function milTime(timeInput: string) {
     let [endHour, endMin] = endTime.split(':')
 
 
-    if (startHour >= '25') {
+    if (startHour >= '25' || endHour >= '25') {
         return false;
     }
 
-    if (endHour >= '25') {
+    if (startMin > '60' || endMin > '60') {
         return false;
     }
-
-    if (startMin > '60') {
-        return false;
-    }
-
-    if (endMin > '60') {
-        return false;
-    }
-    
 
     return true;
 }
