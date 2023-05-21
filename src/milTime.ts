@@ -21,6 +21,11 @@ export function milTime(timeInput: string) {
     if (leftMinute > 60) {
         return false;
     }
+
+    let rightMinute = Number(timeInput.split(" - ")[1].split(':')[1]);
+    if (rightMinute > 60) {
+        return false;
+    }
     
 
     return true;

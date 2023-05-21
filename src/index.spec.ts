@@ -32,5 +32,11 @@ describe("military time validator", () => {
 
         expect(milTime(timeInput)).toBe(false);
   });
+
+  describe('it knows that "12:01 - 13:99" is not a valid time range', () => {
+    const timeInput = "12:01 - 13:99";
+
+    expect(milTime(timeInput)).toBe(false);
+});
   
 });
