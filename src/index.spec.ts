@@ -25,18 +25,24 @@ describe("military time validator", () => {
       ])("it knows that %s has hours that are %s ", (time, result) => {
         expect(milTime(time)).toBe(result);
       });
-  });
+    });
 
-  describe('it knows that "12:99 - 13:01" is not a valid time range', () => {
+    describe('it knows that "12:99 - 13:01" is not a valid time range', () => {
         const timeInput = "12:99 - 13:01";
 
         expect(milTime(timeInput)).toBe(false);
-  });
+    });
 
-  describe('it knows that "12:01 - 13:99" is not a valid time range', () => {
-    const timeInput = "12:01 - 13:99";
+    describe('it knows that "12:01 - 13:99" is not a valid time range', () => {
+        const timeInput = "12:01 - 13:99";
 
-    expect(milTime(timeInput)).toBe(false);
-});
+        expect(milTime(timeInput)).toBe(false);
+    });
+    
+    describe('it knows that "12:01 - 14:23" is a valid time range', () => {
+        const timeInput = "12:01 - 14:23";
+
+        expect(milTime(timeInput)).toBe(true);
+    });
   
 });
