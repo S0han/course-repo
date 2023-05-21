@@ -1,56 +1,36 @@
-import { milTime } from './milTime';
+import { milTime } from "./milTime";
 
+describe("military time validator", () => {
+  it('will return "false" for an empty string', () => {
+    const timeInput = "";
 
-describe('military time validator', () => {
+    const valMilTime = milTime(timeInput);
 
-    it('will return "false" for an empty string', () => {
+    expect(valMilTime).toBe(false);
+  });
 
-        const timeInput = '';
+  it('must contain a " - " in the time range', () => {
+    const timeInput = "10:21 -11:05";
 
-        const valMilTime = milTime(timeInput);
+    const valMilTime = milTime(timeInput);
 
-        expect(valMilTime).toBe(false);
+    expect(valMilTime).toBe(false);
+  });
 
-    }); 
+  describe('can detect valid hours', () => {
+    it.each([
+        ["25:00 - 12:23", false],
+        ["23:00 - 27:23", false],
+        ["19:00 - 22:23", true],
+      ])("it knows that %s has hours that are %s ", (time, result) => {
+        expect(milTime(time)).toBe(result);
+      });
+  });
 
-    it('must contain a " - " in the time range', () => {
-        
-        const timeInput = '10:21 -11:05'
+  describe('it knows that "12:99 - 13:01" ', () => {
+        const timeInput = "12:99 - 13:01";
 
-        const valMilTime = milTime(timeInput);
-
-        expect(valMilTime).toBe(false);
-
-    });
-
-    it('knows that "25:00 - 12:23" is not a valid time range', () => {
-
-        const timeInput = '25:00 - 12:23'; 
-        
-        const valMilTime = milTime(timeInput);
-
-        expect(valMilTime).toBe(false);
-
-    });
-
-    it('knows that "23:00 - 27:23" is not a valid time range', () => {
-
-        const timeInput = '23:00 - 27:23'; 
-        
-        const valMilTime = milTime(timeInput);
-
-        expect(valMilTime).toBe(false);
-
-    });
-
-    it('knows that "19:00 - 22:23" is not a valid time range', () => {
-
-        const timeInput = '19:00 - 22:23'; 
-        
-        const valMilTime = milTime(timeInput);
-
-        expect(valMilTime).toBe(true);
-
-    });
-
-})
+        expect(milTime(timeInput)).toBe(false);
+  });
+  
+});
